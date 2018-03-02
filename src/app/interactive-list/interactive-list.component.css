@@ -1,20 +1,27 @@
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    grid-gap: 10px;
+    grid-gap: 5px;
     background-color: #2196F3;
-    padding: 10px;
+    padding: 5px;
+    font-size: larger;
+    font-family: Calibri;
 }
 
 .grid-container > div {
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 .grid-item1 {
     grid-column-start: 1;
     grid-column-end: 5;
+}
+
+.grid-item1 > h2 {
+    margin: 0px 0px 0px 10px;
+    text-align: left;
 }
 
 .grid-item2 {
@@ -53,9 +60,21 @@
 .grid-item3_1_2 {
     grid-column-start: 2;
     grid-column-end: 4;
+    text-align: left;
 }
 
 .grid-item3_1_3 {
     grid-column-start: 4;
     grid-column-end: 5;
+}
+
+@media only screen and (min-width: 500px)  {
+    .grid-container {
+        width: 400px;
+        margin: auto;
+    }
+}
+
+ul {
+    list-style-type: none;
 }
