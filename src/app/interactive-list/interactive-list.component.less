@@ -1,0 +1,63 @@
+.interactive-list-grid {
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    font-size: larger;
+    font-family: Calibri;
+
+    .cooking {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    .activities-grid {
+        display: grid;
+        grid-template-columns: 10% 70% 20%;
+        font-size: medium;
+        font-family: Calibri;
+    
+        .activities-input {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        
+        .activities-button-add {
+            grid-column-start: 3;
+            grid-column-end: 4;
+        }
+        
+        .activities-list {
+            grid-column-start: 1;
+            grid-column-end: 4;
+        
+            .activity-grid {
+                display: grid;
+                grid-template-columns: 10% 70% 20%;
+                font-size: medium;
+                font-family: Calibri;
+            
+                .activity-grid-id {
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+                }
+                
+                .activity-grid-name {
+                    grid-column-start: 2;
+                    grid-column-end: 3;
+                }
+                
+                .activity-grid-button {
+                    grid-column-start: 3;
+                    grid-column-end: 4;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 500px)  {
+    .interactive-list-grid {
+        width: 500px;
+        margin: auto;
+    }
+} 
+

@@ -7,7 +7,7 @@ import { ActivityService } from '../activity.service';
 @Component({
   selector: 'app-interactive-list',
   templateUrl: './interactive-list.component.html',
-  styleUrls: ['./interactive-list.component.css'],
+  styleUrls: ['./interactive-list.component.less'],
   providers: []
 })
 export class InteractiveListComponent implements OnInit {
