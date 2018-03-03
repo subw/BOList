@@ -1,71 +1,39 @@
-<div class="grid-container" style="text-align:center">
-  <div class="grid-item1">
-    <h2>Kochen</h2>
-  </div>
-  <div class="grid-item2">
-      <div class="grid-item2_1">
-          <input #activityName />
-        </div>
-        <div class="grid-item2_2">
-          <!-- (click) passes input value to add() and then clears the input -->
-          <button (click)="add(activityName.value); activityName.value=''">
-            +
-          </button>
-        </div>
-  </div>
-  <div class="grid-item3">
-    <ul class="cooking">
-      <li *ngFor="let activity of activities">
-        <div class="grid-item3_1">
-          <div class="grid-item3_1_1">
-              {{activity.id}}
-            </div>
-            <div class="grid-item3_1_2">
-              {{activity.name}}
-            </div>
-            <div class="grid-item3_1_3">
-              <button class="delete" title="delete activity"
-              (click)="delete(activity)">x</button>
-            </div>
-        </div>        
-      </li>
-    </ul>
-  </div>
-  <div class="grid-item4">
+<div class="grid-container1" style="text-align:center">
+  <div class="grid-container1-item">
     <ngb-accordion [closeOthers]="true" activeIds="static-1">
-        <ngb-panel id="static-1" title="Simple">
-          <ng-template ngbPanelContent>
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-            aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-            craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-            labore sustainable VHS.
-          </ng-template>
-        </ngb-panel>
-        <ngb-panel id="static-2">
-          <ng-template ngbPanelTitle>
-            <span>&#9733; <b>Fancy</b> title &#9733;</span>
-          </ng-template>
-          <ng-template ngbPanelContent>
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-            aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-            craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-            labore sustainable VHS.
-          </ng-template>
-        </ngb-panel>
-        <ngb-panel id="static-3" title="Disabled" [disabled]="true">
-          <ng-template ngbPanelContent>
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-            aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-            craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-            labore sustainable VHS.
-          </ng-template>
-        </ngb-panel>
-      </ngb-accordion>
+      <ngb-panel id="static-1" title="Kochen">
+        <ng-template ngbPanelContent>
+          <div class="grid-container2" style="text-align:center">
+            <div class="grid-container2-item1">
+              <input #activityName />
+            </div>
+            <div class="grid-container2-item2">
+              <!-- (click) passes input value to add() and then clears the input -->
+              <button (click)="add(activityName.value); activityName.value=''">
+                +
+              </button>
+            </div>
+            <div class="grid-container2-item3">
+              <div class="cooking">
+                <div *ngFor="let activity of activities">
+                  <div class="grid-container3">
+                    <div class="grid-container3-item1">
+                      {{activity.id}}
+                    </div>
+                    <div class="grid-container3-item2">
+                      {{activity.name}}
+                    </div>
+                    <div class="grid-container3-item3">
+                      <button class="delete" title="delete activity"
+                      (click)="delete(activity)">x</button>
+                    </div>
+                  </div>        
+                </div>
+              </div>
+            </div>            
+          </div>          
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
   </div>
 </div>
