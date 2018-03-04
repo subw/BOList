@@ -1,32 +1,37 @@
 <div class="interactive-list-grid" style="text-align:center">
   <div class="cooking">
     <ngb-accordion [closeOthers]="true" activeIds="static-1">
-      <ngb-panel id="static-1" title="Kochen">
+      <ngb-panel id="static-1">
+        <ng-template ngbPanelTitle>
+          <span class="accordion-title">Kochen</span>
+        </ng-template>
         <ng-template ngbPanelContent>
           <div class="activities-grid" style="text-align:center">
-            <div class="activities-input">
-              <input #activityName />
-            </div>
-            <div class="activities-button-add">
-              <!-- (click) passes input value to add() and then clears the input -->
-              <button (click)="add(activityName.value); activityName.value=''">
-                +
-              </button>
-            </div>
-            <div class="activities-list">
-              <div class="activity-grid" *ngFor="let activity of activities">
-                <div class="activity-grid-id">
-                  {{activity.id}}
+
+            <!-- add activity area -->
+            <div class="activities-input input-group mb-3">
+              <input type="text" class="form-control" placeholder="Neues Gericht" aria-label="Neues Gericht" aria-describedby="basic-addon2" #activityName />
+              <div class="input-group-append">
+                  <!-- (click) passes input value to add() and then clears the input -->
+                  <button class="btn btn-outline-secondary" (click)="add(activityName.value); activityName.value=''">
+                    +
+                  </button>
                 </div>
-                <div class="activity-grid-name">
+            </div>
+
+            <!-- activity list area -->
+            <ul class="activities-list list-group">
+              <li class="activity-grid list-group-item" *ngFor="let activity of activities">
+                <div class="activity-name">
                   {{activity.name}}
                 </div>
-                <div class="activity-grid-button">
-                  <button class="delete" title="delete activity"
+                <div class="activity-button">
+                  <button class="btn btn-danger button-delete" title="delete activity"
                   (click)="delete(activity)">x</button>
                 </div>
-              </div>
-            </div>            
+              </li>
+            </ul>
+
           </div>          
         </ng-template>
       </ngb-panel>
