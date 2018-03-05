@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { InteractiveListComponent } from './interactive-list/interactive-list.component';
 import { ActivityService } from './activity.service';
-
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { ActivityService } from './activity.service';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [ActivityService],
+  providers: [ActivityService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

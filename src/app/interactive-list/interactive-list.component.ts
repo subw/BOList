@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Activity } from '../activity';
+import { User } from '../user';
 import { ActivityService } from '../activity.service';
+import { DataService } from '../data.service';
 
 
 @Component({
@@ -12,14 +14,20 @@ import { ActivityService } from '../activity.service';
 })
 export class InteractiveListComponent implements OnInit {
   activities: Activity[];
-  constructor(private activityService: ActivityService) { }
+  users: User[];
+  constructor(private activityService: ActivityService, private dataService: DataService) { }
 
   ngOnInit() {
     this.getActivities();
+    this.getUsers();
   }
 
   getActivities(): void {
     this.activityService.getActivities().subscribe(activities => this.activities = activities);
+  }
+
+  getUsers(): void {
+    this.dataService.getUsers().subscribe(data => this.users = data['data']);
   }
   
   add(name: string): void {
