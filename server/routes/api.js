@@ -59,4 +59,20 @@ router.get('/activities', (req, res) => {
     });
 });
 
+// Set activities
+router.post('/activities', (req, res) => {
+    connection((db) => {
+        db.collection('activities')
+            .save(req.body)
+            .then((result) => {
+                response.data = result.ops[0];
+                console.log(result);
+                res.json(response);
+            })
+            .catch((err) => {
+                sendError(err, res);
+            });
+    });
+});
+
 module.exports = router;

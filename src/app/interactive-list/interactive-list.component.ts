@@ -35,7 +35,8 @@ export class InteractiveListComponent implements OnInit {
     if (!name) { return; }
     this.activityService.addActivity({ name } as Activity)
       .subscribe(activity => {
-        this.activities.push(activity);
+        console.log(this.activities);
+        this.activities.push(activity['data']);
       });
   }
 
