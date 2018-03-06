@@ -23,7 +23,7 @@ export class InteractiveListComponent implements OnInit {
   }
 
   getActivities(): void {
-    this.activityService.getActivities().subscribe(activities => this.activities = activities);
+    this.activityService.getActivities().subscribe(activities => this.activities = activities['data']);
   }
 
   getUsers(): void {

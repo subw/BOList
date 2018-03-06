@@ -43,4 +43,20 @@ router.get('/users', (req, res) => {
     });
 });
 
+// Get activities
+router.get('/activities', (req, res) => {
+    connection((db) => {
+        db.collection('activities')
+            .find()
+            .toArray()
+            .then((activities) => {
+                response.data = activities;
+                res.json(response);
+            })
+            .catch((err) => {
+                sendError(err, res);
+            });
+    });
+});
+
 module.exports = router;
