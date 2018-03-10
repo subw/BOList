@@ -75,15 +75,13 @@ router.post('/activities', (req, res) => {
 });
 
 // Delete activities
-router.delete('/activities/:id', (req, res) => {
-    var id = req.param("id");
+router.delete('/activities/:_id', (req, res) => {
+    var id = req.param("_id");
     connection((db) => {
         db.collection('activities')
-            .deleteOne(id)
+            .deleteOne({ "_id" : ObjectID(id) })
             .then((result) => {
-                console.log(result);
-                console.log(result.ops[0]);
-                response.data = result.ops[0];
+                response.data = result.deletedCount;
                 res.json(response);
             })
             .catch((err) => {

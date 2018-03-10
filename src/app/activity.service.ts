@@ -49,7 +49,7 @@ export class ActivityService {
 
     /** DELETE: delete the activity from the server */
     deleteActivity (activity: Activity | number): Observable<Activity> {
-        const id = typeof activity === 'number' ? activity : activity.id;
+        const id = typeof activity === 'number' ? activity : activity._id;
         const url = `${this.activitiesUrl}/${id}`;
     
         return this.http.delete<Activity>(url, httpOptions).pipe(
