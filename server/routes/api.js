@@ -66,7 +66,24 @@ router.post('/activities', (req, res) => {
             .save(req.body)
             .then((result) => {
                 response.data = result.ops[0];
+                res.json(response);
+            })
+            .catch((err) => {
+                sendError(err, res);
+            });
+    });
+});
+
+// Delete activities
+router.delete('/activities/:id', (req, res) => {
+    var id = req.param("id");
+    connection((db) => {
+        db.collection('activities')
+            .deleteOne(id)
+            .then((result) => {
                 console.log(result);
+                console.log(result.ops[0]);
+                response.data = result.ops[0];
                 res.json(response);
             })
             .catch((err) => {
