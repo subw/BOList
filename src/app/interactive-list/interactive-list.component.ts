@@ -19,15 +19,12 @@ export class InteractiveListComponent implements OnInit {
 
   ngOnInit() {
     this.getActivities();
-    this.getUsers();
   }
 
   getActivities(): void {
-    this.activityService.getActivities().subscribe(activities => this.activities = activities['data']);
-  }
-
-  getUsers(): void {
-    this.dataService.getUsers().subscribe(data => this.users = data['data']);
+    this.activityService.getActivities().subscribe(activities => {
+      this.activities = activities;
+    });
   }
   
   add(name: string): void {
@@ -35,13 +32,23 @@ export class InteractiveListComponent implements OnInit {
     if (!name) { return; }
     this.activityService.addActivity({ name } as Activity)
       .subscribe(activity => {
-        console.log(this.activities);
-        this.activities.push(activity['data']);
+        this.activities.push(activity);
+        this.activities.sort(this.sortAlphabetically);
       });
   }
 
   delete(activity: Activity): void {
     this.activities = this.activities.filter(h => h !== activity);
     this.activityService.deleteActivity(activity).subscribe();
+  }
+
+  // helper functions
+  sortAlphabetically(firstActivity: Activity, secondActivity: Activity): number {
+    var nameFirst=firstActivity.name.toLowerCase(), nameSecond=secondActivity.name.toLowerCase();
+    if (nameFirst < nameSecond)
+      return -1;
+    if (nameFirst > nameSecond)
+      return 1;
+    return 0;
   }
 }

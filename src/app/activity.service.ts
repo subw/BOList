@@ -16,6 +16,7 @@ export class ActivityService {
         private http: HttpClient) { }
 
     private activitiesUrl = 'api/activities';  // URL to web api
+    private addActivityUrl = 'api/activity/create';  // URL to create web api
 
 
     getActivities(): Observable<Activity[]> {
@@ -42,7 +43,7 @@ export class ActivityService {
 
     /** POST: add a new activity to the server */
     addActivity (activity: Activity): Observable<Activity> {
-        return this.http.post<Activity>(this.activitiesUrl, activity, httpOptions).pipe(
+        return this.http.post<Activity>(this.addActivityUrl, activity, httpOptions).pipe(
         catchError(this.handleError<Activity>('addActivity'))
         );
     }
