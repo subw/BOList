@@ -17,6 +17,7 @@ export class ActivityService {
 
     private activitiesUrl = 'api/activities';  // URL to web api
     private addActivityUrl = 'api/activity/create';  // URL to create web api
+    private activityUrl = 'api/activity';  // URL to create web api
 
 
     getActivities(): Observable<Activity[]> {
@@ -51,9 +52,9 @@ export class ActivityService {
     /** DELETE: delete the activity from the server */
     deleteActivity (activity: Activity | number): Observable<Activity> {
         const id = typeof activity === 'number' ? activity : activity._id;
-        const url = `${this.activitiesUrl}/${id}`;
+        const url = `${this.activityUrl}/${id}/delete`;
     
-        return this.http.delete<Activity>(url, httpOptions).pipe(
+        return this.http.post<Activity>(url, httpOptions).pipe(
         catchError(this.handleError<Activity>('deleteActivity'))
         );
     }
